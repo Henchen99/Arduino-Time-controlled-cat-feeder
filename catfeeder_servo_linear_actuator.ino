@@ -24,7 +24,7 @@ void setup() {
   myservo.attach(9);  // attaches the servo on pin 9 to the servo object
 
   Serial.begin(9600);
-  setTime(19,00,0,20,9,21);  //hour, minute, second, day, month, year
+  setTime(19,46,50,20,9,21);  //hour, minute, second, day, month, year
 
 }
 
@@ -32,14 +32,19 @@ void loop(){
   digitalClockDisplay();
   delay(1000);  
   time_t t_now=now();
-  if(hour(t_now)==12 && minute(t_now)==00){
-      printf("servo turning"); 
+  //if(hour(t_now)==12 && minute(t_now)==00){
+    //  Serial.print("servo turning");
+  //}
+  //if(hour(t_now)==19 && minute(t_now)==47){
+      //Serial.print("servo turning"); 
+  //}
+  
+  if(hour(t_now)==19 && minute(t_now)==47 && second(t_now)==00){  //runs 'turnservo' function at exactly 12.00.00
+      turnservo(); 
   }
-
-  /*if(t.hour == 12 && t.min == 00){
-   *  turnservo();
-   * }
-   */
+  else if(hour(t_now)==19 && minute(t_now)==47 && second(t_now)==20){
+      turnservo();  
+  }
   
 
 }
@@ -74,15 +79,20 @@ void printDigits(int digits)
 
 
 void turnservo(){
-  myservo.detach(); //out position
-  delay(2000);
   myservo.attach(9);  //servo attached
-  myservo.write(180); //spin 1 direction
-  delay(180);   //spin 180 deg
-  myservo.detach(); //in position
-  delay(2000);  
-  myservo.attach(9);  
-  myservo.write(0); //spin other direction
-  delay(180);   //spin 180 deg
-  myservo.detach(); //servo stop
+  myservo.write(0); //RETRACT
+  delay(400);   //spin 360 degrees 
+  myservo.write(90); //servo stop
+  delay(3000);   //PAUSE
+  myservo.write(180); //PUSH
+  delay(400);   //spin 360 degrees
+  myservo.write(90); //servo stop
+  delay(3000);   //PAUSE
+  myservo.write(0); //RETRACT
+  delay(400);   //spin 360 degrees 
+  myservo.write(90); //servo stop
+  delay(3000);   //PAUSE
+  myservo.write(180); //PUSH
+  delay(400);   //spin 360 degrees
+  myservo.write(90); //servo stop
 }
