@@ -24,7 +24,7 @@ void setup() {
   myservo.attach(9);  // attaches the servo on pin 9 to the servo object
 
   Serial.begin(9600);
-  setTime(19,46,50,20,9,21);  //hour, minute, second, day, month, year
+  setTime(19,46,50,20,9,21);  //set own time before plug into wall by: hour, minute, second, day, month, year
 
 }
 
