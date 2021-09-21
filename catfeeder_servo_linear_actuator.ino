@@ -32,18 +32,9 @@ void loop(){
   digitalClockDisplay();
   delay(1000);  
   time_t t_now=now();
-  //if(hour(t_now)==12 && minute(t_now)==00){
-    //  Serial.print("servo turning");
-  //}
-  //if(hour(t_now)==19 && minute(t_now)==47){
-      //Serial.print("servo turning"); 
-  //}
   
-  if(hour(t_now)==19 && minute(t_now)==47 && second(t_now)==00){  //runs 'turnservo' function at exactly 12.00.00
+  if(hour(t_now)==19 && minute(t_now)==47 && second(t_now)==00){  //runs 'turnservo' function at exactly 12:00:00
       turnservo(); 
-  }
-  else if(hour(t_now)==19 && minute(t_now)==47 && second(t_now)==20){
-      turnservo();  
   }
   
 
