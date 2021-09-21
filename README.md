@@ -8,6 +8,6 @@ A servo is placed on the linear actuator contraption converting rotational motio
 
 I currently do not have a RTC therefore I am using just the arduino itself to keep track of time although I realise it is not most accurate (by a few minutes a day) however it is sufficient in this case.
 
-I wrote some simple code that uses the <Servo.h> and <TimeLib.h> library and constantly reads the time. At a specific time, it will turn the servo back and forth as many times as required.
+I wrote some simple code that uses the <Servo.h> and <TimeLib.h> library which constantly reads the time. At a specific time, it will turn the servo back and forth as many times as required.
 
 It works well and is very important when nobedy is at home to feed the cat
